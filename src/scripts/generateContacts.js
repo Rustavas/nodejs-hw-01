@@ -17,4 +17,4 @@ const generateContacts = async (number) => {
     console.log(err)
   }
 }
-await generateContacts();
+await generateContacts(5);
