@@ -7,12 +7,12 @@ const generateContacts = async (number) => {
   try {
     const contacts = JSON.parse(await fs.readFile(PATH_DB, 'utf8'));
     const newContacts = [];
-    if (number === ''  || number < 1 || !Number.isInteger(number)) return console.log("Please enter an integer greater than zero.");
+    if (number === '' || number < 1 || !Number.isInteger(number)) return console.log("Please enter an integer greater than zero.");
     for (let i = 1; i <= number; i++) {
       newContacts.push(createFakeContact())
     }
     const allContacts = [...contacts, ...newContacts];
-    await fs.writeFile(PATH_DB,  JSON.stringify(allContacts))
+    await fs.writeFile(PATH_DB, JSON.stringify(allContacts, null, 2))
   } catch (err) {
     console.log(err)
   }
